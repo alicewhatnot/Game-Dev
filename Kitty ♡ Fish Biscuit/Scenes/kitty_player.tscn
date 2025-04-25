@@ -1,0 +1,44 @@
+[gd_scene load_steps=8 format=3 uid="uid://ccjf6pn1aqsgx"]
+
+[ext_resource type="Script" uid="uid://bkgsyoriw5p5g" path="res://Scripts/kitty_player.gd" id="1_fok87"]
+[ext_resource type="Texture2D" uid="uid://2a3kpn0c7fmo" path="res://Sprites/Kitty/Pixel Kitty1.png" id="1_weay0"]
+[ext_resource type="Texture2D" uid="uid://cnh37evq0fxg8" path="res://Sprites/Kitty/Pixel Kitty2.png" id="2_fok87"]
+[ext_resource type="Texture2D" uid="uid://b40rsvjpmffyq" path="res://Sprites/Kitty/Pixel Kitty3.png" id="3_lswm0"]
+[ext_resource type="Texture2D" uid="uid://dwtlfnkqpgfwl" path="res://Sprites/Kitty/Pixel Kitty4.png" id="4_cc31o"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_k85sg"]
+size = Vector2(229, 157)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_bj4eo"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_weay0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_fok87")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_lswm0")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_cc31o")
+}],
+"loop": true,
+"name": &"default",
+"speed": 4.0
+}]
+
+[node name="Kitty" type="CharacterBody2D"]
+script = ExtResource("1_fok87")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(112, -80)
+shape = SubResource("RectangleShape2D_k85sg")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(112, -96)
+scale = Vector2(10, 10)
+sprite_frames = SubResource("SpriteFrames_bj4eo")
+frame = 2
+frame_progress = 0.287849

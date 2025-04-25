@@ -1,0 +1,13 @@
+[gd_scene load_steps=3 format=3 uid="uid://dxwx1vfvc6l37"]
+
+[ext_resource type="PackedScene" uid="uid://ccjf6pn1aqsgx" path="res://Scenes/kitty_player.tscn" id="1_a02cp"]
+[ext_resource type="PackedScene" uid="uid://dvnt0kjoy0oex" path="res://Scenes/foreground.tscn" id="2_go701"]
+
+[node name="World" type="Node2D"]
+
+[node name="Kitty" parent="." instance=ExtResource("1_a02cp")]
+position = Vector2(0, -16)
+scale = Vector2(0.5, 0.5)
+
+[node name="Foreground" parent="." instance=ExtResource("2_go701")]
+scale = Vector2(0.5, 0.5)
