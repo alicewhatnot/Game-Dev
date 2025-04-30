@@ -1,4 +1,4 @@
-[gd_scene load_steps=8 format=3 uid="uid://ccjf6pn1aqsgx"]
+[gd_scene load_steps=9 format=3 uid="uid://ccjf6pn1aqsgx"]
 
 [ext_resource type="Script" uid="uid://bkgsyoriw5p5g" path="res://Scripts/kitty_player.gd" id="1_fok87"]
 [ext_resource type="Texture2D" uid="uid://2a3kpn0c7fmo" path="res://Sprites/Kitty/Pixel Kitty1.png" id="1_weay0"]
@@ -6,8 +6,9 @@
 [ext_resource type="Texture2D" uid="uid://b40rsvjpmffyq" path="res://Sprites/Kitty/Pixel Kitty3.png" id="3_lswm0"]
 [ext_resource type="Texture2D" uid="uid://dwtlfnkqpgfwl" path="res://Sprites/Kitty/Pixel Kitty4.png" id="4_cc31o"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_k85sg"]
-size = Vector2(229, 157)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fok87"]
+radius = 8.0
+height = 20.0
 
 [sub_resource type="SpriteFrames" id="SpriteFrames_bj4eo"]
 animations = [{
@@ -26,19 +27,33 @@ animations = [{
 }],
 "loop": true,
 "name": &"default",
-"speed": 4.0
+"speed": 0.0
 }]
+
+[sub_resource type="GDScript" id="GDScript_fok87"]
 
 [node name="Kitty" type="CharacterBody2D"]
 script = ExtResource("1_fok87")
+speed = 7.0
+jump_power = 7.0
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(112, -80)
-shape = SubResource("RectangleShape2D_k85sg")
+position = Vector2(2, -8)
+rotation = 1.5708
+scale = Vector2(2, 2)
+shape = SubResource("CapsuleShape2D_fok87")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(112, -96)
-scale = Vector2(10, 10)
+position = Vector2(0, -10)
+scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bj4eo")
 frame = 2
 frame_progress = 0.287849
+
+[node name="Camera2D" type="Camera2D" parent="."]
+offset = Vector2(15, 0)
+zoom = Vector2(4, 4)
+process_callback = 0
+position_smoothing_enabled = true
+position_smoothing_speed = 50.0
+script = SubResource("GDScript_fok87")
