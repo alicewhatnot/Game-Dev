@@ -1,7 +1,7 @@
 extends CharacterBody2D
 
-@export var speed = 10.0
-@export var jump_power = 10.0
+@export var speed = 9.0
+@export var jump_power = 9.0
 
 var speed_multiplier = 30.0
 var jump_multiplier = -50.0
@@ -16,6 +16,7 @@ func _physics_process(delta: float) -> void:
 	if not is_on_floor():
 		velocity += get_gravity() * delta * 2
 
+
 	# Handle jump.
 	if Input.is_action_just_pressed("jump") and is_on_floor():
 		velocity.y = jump_power*jump_multiplier
@@ -29,11 +30,18 @@ func _physics_process(delta: float) -> void:
 		velocity.x = move_toward(velocity.x, 0, speed * speed_multiplier)
 
 	move_and_slide()
-	
-	if velocity.length() > 0:
-		$AnimatedSprite2D.play()
+	handle_animation()
+
+func handle_animation():
+	if is_on_floor():
+		if velocity:
+			$AnimatedSprite2D.play("walking")
+			if velocity.x != 0:
+				$AnimatedSprite2D.flip_h = velocity.x < 0
+		else:
+			$AnimatedSprite2D.play("idle")
 	else:
-		$AnimatedSprite2D.stop()
+		$AnimatedSprite2D.play("jumping")
+
 	
-	if velocity.x != 0:
-		$AnimatedSprite2D.flip_h = velocity.x < 0
+	

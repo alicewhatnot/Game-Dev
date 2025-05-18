@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://dwtlfnkqpgfwl"
-path="res://.godot/imported/Pixel Kitty4.png-40dd7a5df0e2804d2886b3187cb4639f.ctex"
+uid="uid://cwgt25ttgi047"
+path="res://.godot/imported/cat_walking6.png-9a18c423be4c7a3ce1818198522aa518.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Kitty/Pixel Kitty4.png"
-dest_files=["res://.godot/imported/Pixel Kitty4.png-40dd7a5df0e2804d2886b3187cb4639f.ctex"]
+source_file="res://Sprites/Kitty/cat_walking6.png"
+dest_files=["res://.godot/imported/cat_walking6.png-9a18c423be4c7a3ce1818198522aa518.ctex"]
 
 [params]
 

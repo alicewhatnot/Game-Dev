@@ -1,10 +1,14 @@
-[gd_scene load_steps=9 format=3 uid="uid://ccjf6pn1aqsgx"]
+[gd_scene load_steps=13 format=3 uid="uid://ccjf6pn1aqsgx"]
 
 [ext_resource type="Script" uid="uid://bkgsyoriw5p5g" path="res://Scripts/kitty_player.gd" id="1_fok87"]
-[ext_resource type="Texture2D" uid="uid://2a3kpn0c7fmo" path="res://Sprites/Kitty/Pixel Kitty1.png" id="1_weay0"]
-[ext_resource type="Texture2D" uid="uid://cnh37evq0fxg8" path="res://Sprites/Kitty/Pixel Kitty2.png" id="2_fok87"]
-[ext_resource type="Texture2D" uid="uid://b40rsvjpmffyq" path="res://Sprites/Kitty/Pixel Kitty3.png" id="3_lswm0"]
-[ext_resource type="Texture2D" uid="uid://dwtlfnkqpgfwl" path="res://Sprites/Kitty/Pixel Kitty4.png" id="4_cc31o"]
+[ext_resource type="Texture2D" uid="uid://017ekxfxjxfn" path="res://Sprites/Kitty/cat_standing1.png" id="2_3dvvx"]
+[ext_resource type="Texture2D" uid="uid://dr52quv374qmk" path="res://Sprites/Kitty/cat_walking1.png" id="2_cc31o"]
+[ext_resource type="Texture2D" uid="uid://dinxtso5yv832" path="res://Sprites/Kitty/cat_walking2.png" id="3_2gxma"]
+[ext_resource type="Texture2D" uid="uid://cll8of25ljunu" path="res://Sprites/Kitty/cat_jumping1.png" id="3_3dvvx"]
+[ext_resource type="Texture2D" uid="uid://6avskcfskvix" path="res://Sprites/Kitty/cat_walking3.png" id="4_3dvvx"]
+[ext_resource type="Texture2D" uid="uid://rni7brac8fd6" path="res://Sprites/Kitty/cat_walking4.png" id="5_16p2v"]
+[ext_resource type="Texture2D" uid="uid://dxbu1t3fnwfrc" path="res://Sprites/Kitty/cat_walking5.png" id="6_efmy8"]
+[ext_resource type="Texture2D" uid="uid://cwgt25ttgi047" path="res://Sprites/Kitty/cat_walking6.png" id="7_ys5pk"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fok87"]
 radius = 8.0
@@ -14,20 +18,42 @@ height = 20.0
 animations = [{
 "frames": [{
 "duration": 1.0,
-"texture": ExtResource("1_weay0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("2_fok87")
-}, {
-"duration": 1.0,
-"texture": ExtResource("3_lswm0")
-}, {
-"duration": 1.0,
-"texture": ExtResource("4_cc31o")
+"texture": ExtResource("2_3dvvx")
 }],
 "loop": true,
-"name": &"default",
-"speed": 0.0
+"name": &"idle",
+"speed": 20.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_3dvvx")
+}],
+"loop": true,
+"name": &"jumping",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_cc31o")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_2gxma")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_3dvvx")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_16p2v")
+}, {
+"duration": 1.0,
+"texture": ExtResource("6_efmy8")
+}, {
+"duration": 1.0,
+"texture": ExtResource("7_ys5pk")
+}],
+"loop": true,
+"name": &"walking",
+"speed": 20.0
 }]
 
 [sub_resource type="GDScript" id="GDScript_fok87"]
@@ -44,16 +70,14 @@ scale = Vector2(2, 2)
 shape = SubResource("CapsuleShape2D_fok87")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
-position = Vector2(0, -10)
+position = Vector2(0, -16)
 scale = Vector2(2, 2)
 sprite_frames = SubResource("SpriteFrames_bj4eo")
-frame = 2
-frame_progress = 0.287849
+animation = &"jumping"
 
 [node name="Camera2D" type="Camera2D" parent="."]
 offset = Vector2(15, 0)
 zoom = Vector2(4, 4)
-process_callback = 0
 position_smoothing_enabled = true
 position_smoothing_speed = 50.0
 script = SubResource("GDScript_fok87")

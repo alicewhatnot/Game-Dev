@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b40rsvjpmffyq"
-path="res://.godot/imported/Pixel Kitty3.png-4272116ba66989134237509d5bcc03d6.ctex"
+uid="uid://fs5rqqv6qa7h"
+path="res://.godot/imported/cat_standing6.png-48ef7368d8bec8197b3e921c29aa79e8.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://Sprites/Kitty/Pixel Kitty3.png"
-dest_files=["res://.godot/imported/Pixel Kitty3.png-4272116ba66989134237509d5bcc03d6.ctex"]
+source_file="res://Sprites/Kitty/cat_standing6.png"
+dest_files=["res://.godot/imported/cat_standing6.png-48ef7368d8bec8197b3e921c29aa79e8.ctex"]
 
 [params]
 
